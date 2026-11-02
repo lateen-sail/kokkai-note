@@ -4,7 +4,7 @@
 
 ## 必要な環境
 
-- Node.js：`.nvmrc` の版
+- Node.js：`package.json` の `engines` の版
 - pnpm：`package.json` の `packageManager` の版
 
 ## 起動方法
