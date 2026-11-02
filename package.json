@@ -6,5 +6,36 @@
   "packageManager": "pnpm@12.16.1",
   "engines": {
     "node": "26.x"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:mock": "VITE_API_MOCKING=enabled vite",
+    "build": "pnpm run licenses && tsc -b && vite build",
+    "start": "vite preview --host 127.0.0.1",
+    "lint": "eslint .",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test --grep-invert @a11y",
+    "test:a11y": "playwright test --grep @a11y",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "size": "size-limit",
+    "lighthouse": "pnpm dlx @lhci/cli@0.15.1 autorun",
+    "check:api": "tsx scripts/checkApi.ts",
+    "licenses": "generate-license-file --input package.json --output public/THIRD_PARTY_LICENSES.txt --overwrite"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "generate-license-file": "^4.2.5",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.5"
   }
 }
