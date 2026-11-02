@@ -122,12 +122,12 @@ export default defineConfig([
           patterns: [
             {
               group: ["@/components/ui/*"],
-              message: "src/components/my/ のラッパーを import する（CQ08）",
+              message: "src/components/my/ のラッパーを import する（DE05）",
             },
             {
               group: ["**/types/*Api"],
               message:
-                "外部APIの型は service だけで使い、自分の型へ変えて渡す（CQ06）",
+                "外部APIの型は service だけで使い、自分の型へ変えて渡す（DE01）",
             },
           ],
         },
@@ -144,7 +144,7 @@ export default defineConfig([
             {
               group: ["**/types/*Api"],
               message:
-                "外部APIの型は service だけで使い、自分の型へ変えて渡す（CQ06）",
+                "外部APIの型は service だけで使い、自分の型へ変えて渡す（DE01）",
             },
           ],
         },
