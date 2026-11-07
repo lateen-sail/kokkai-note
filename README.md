@@ -28,6 +28,7 @@ http://localhost:5173/kokkai-note/
 | `pnpm typecheck` | 型検査を実行する                       |
 | `pnpm test`      | 単体テストを実行する                   |
 | `pnpm test:e2e`  | E2Eテストを実行する                    |
+| `pnpm test:a11y` | アクセシビリティを検査する             |
 | `pnpm format`    | 書式を整える                           |
 
 ## 環境変数
