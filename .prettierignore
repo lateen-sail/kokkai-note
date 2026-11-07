@@ -1,0 +1,9 @@
+pnpm-lock.yaml
+.next/
+out/
+dist/
+coverage/
+playwright-report/
+test-results/
+.tanstack/
+src/routeTree.gen.ts
