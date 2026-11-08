@@ -80,6 +80,29 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
+  vrt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: package.json
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test:vrt
+      - if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: vrt-results
+          path: |
+            test-results/
+            e2e/vrt.spec.ts-snapshots/
+          retention-days: 7
+          if-no-files-found: ignore
+
   a11y:
     runs-on: ubuntu-latest
     timeout-minutes: 15
