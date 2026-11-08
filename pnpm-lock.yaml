@@ -197,9 +197,6 @@ importers:
       '@size-limit/file':
         specifier: ^14.3.0
         version: 14.3.0(size-limit@14.3.0)
-      '@tailwindcss/node':
-        specifier: ^4.3.5
-        version: 4.3.5
       '@tailwindcss/vite':
         specifier: ^4.3.5
         version: 4.3.5(vite@8.3.6(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1))
