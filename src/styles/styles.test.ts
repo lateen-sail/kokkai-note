@@ -3,7 +3,7 @@ import { compile } from "@tailwindcss/node";
 import { format, resolveConfig } from "prettier";
 import { describe, expect, test } from "vitest";
 
-const STYLES_DIR = new URL(".", import.meta.url).pathname;
+const STYLES_DIR = decodeURIComponent(new URL(".", import.meta.url).pathname);
 
 const THEME_IDS = [
   "prices",
