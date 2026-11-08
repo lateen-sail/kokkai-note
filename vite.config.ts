@@ -4,6 +4,8 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  base: "/kokkai-note/",
+  build: { outDir: "dist/kokkai-note" },
   plugins: [react()],
   resolve: {
     alias: {

@@ -7,7 +7,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI ? "github" : "list",
   use: {
-    baseURL: "http://127.0.0.1:3100",
+    baseURL: "http://127.0.0.1:3100/kokkai-note/",
     trace: "retain-on-failure",
   },
   projects: [
@@ -16,7 +16,7 @@ export default defineConfig({
   ],
   webServer: {
     command: "pnpm build && pnpm start --port 3100",
-    url: "http://127.0.0.1:3100",
+    url: "http://127.0.0.1:3100/kokkai-note/",
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
   },
