@@ -19,17 +19,18 @@ http://localhost:5173/kokkai-note/
 
 ## コマンド
 
-| コマンド         | 内容                                   |
-| ---------------- | -------------------------------------- |
-| `pnpm dev`       | 開発サーバーを起動する                 |
-| `pnpm build`     | 本番用にビルドする                     |
-| `pnpm start`     | ビルドした結果を本番と同じ状態で動かす |
-| `pnpm lint`      | ESLint を実行する                      |
-| `pnpm typecheck` | 型検査を実行する                       |
-| `pnpm test`      | 単体テストを実行する                   |
-| `pnpm test:e2e`  | E2Eテストを実行する                    |
-| `pnpm test:a11y` | アクセシビリティを検査する             |
-| `pnpm format`    | 書式を整える                           |
+| コマンド         | 内容                                            |
+| ---------------- | ----------------------------------------------- |
+| `pnpm dev`       | 開発サーバーを起動する                          |
+| `pnpm build`     | 本番用にビルドする                              |
+| `pnpm start`     | ビルドした結果を本番と同じ状態で動かす          |
+| `pnpm lint`      | ESLint を実行する                               |
+| `pnpm typecheck` | 型検査を実行する                                |
+| `pnpm test`      | 単体テストを実行する                            |
+| `pnpm test:e2e`  | E2Eテストを実行する                             |
+| `pnpm test:a11y` | アクセシビリティを検査する                      |
+| `pnpm test:vrt`  | 画面の見た目を基準の画像と比べる。CI だけで動く |
+| `pnpm format`    | 書式を整える                                    |
 
 ## 環境変数
 
