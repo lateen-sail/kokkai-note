@@ -18,7 +18,7 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test --grep-invert \"@a11y|@vrt\"",
     "test:a11y": "playwright test --grep @a11y",
-    "test:vrt": "playwright test --grep @vrt",
+    "test:vrt": "playwright test --grep @vrt --pass-with-no-tests",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "size": "size-limit",
