@@ -1,0 +1,109 @@
+@theme {
+  --color-*: initial;
+}
+
+@theme inline {
+  --color-white: var(--ref-color-white);
+  --color-black: var(--ref-color-black);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-subtle: var(--subtle);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --color-grid-line: var(--grid-line);
+  --color-theme-prices: var(--theme-prices);
+  --color-theme-prices-foreground: var(--theme-prices-foreground);
+  --color-theme-prices-accent: var(--theme-prices-accent);
+  --color-theme-parenting: var(--theme-parenting);
+  --color-theme-parenting-foreground: var(--theme-parenting-foreground);
+  --color-theme-parenting-accent: var(--theme-parenting-accent);
+  --color-theme-education: var(--theme-education);
+  --color-theme-education-foreground: var(--theme-education-foreground);
+  --color-theme-education-accent: var(--theme-education-accent);
+  --color-theme-work: var(--theme-work);
+  --color-theme-work-foreground: var(--theme-work-foreground);
+  --color-theme-work-accent: var(--theme-work-accent);
+  --color-theme-housing: var(--theme-housing);
+  --color-theme-housing-foreground: var(--theme-housing-foreground);
+  --color-theme-housing-accent: var(--theme-housing-accent);
+  --color-theme-pension: var(--theme-pension);
+  --color-theme-pension-foreground: var(--theme-pension-foreground);
+  --color-theme-pension-accent: var(--theme-pension-accent);
+  --color-theme-disaster: var(--theme-disaster);
+  --color-theme-disaster-foreground: var(--theme-disaster-foreground);
+  --color-theme-disaster-accent: var(--theme-disaster-accent);
+  --color-theme-climate: var(--theme-climate);
+  --color-theme-climate-foreground: var(--theme-climate-foreground);
+  --color-theme-climate-accent: var(--theme-climate-accent);
+  --color-theme-digital: var(--theme-digital);
+  --color-theme-digital-foreground: var(--theme-digital-foreground);
+  --color-theme-digital-accent: var(--theme-digital-accent);
+  --color-theme-diplomacy: var(--theme-diplomacy);
+  --color-theme-diplomacy-foreground: var(--theme-diplomacy-foreground);
+  --color-theme-diplomacy-accent: var(--theme-diplomacy-accent);
+
+  --font-sans: var(--ref-font-family-jp);
+  --font-en: var(--ref-font-family-en);
+
+  --radius-sm: var(--ref-radius-sm);
+  --radius-md: var(--ref-radius-md);
+  --radius-lg: var(--ref-radius-lg);
+
+  --shadow-sm: var(--ref-shadow-sm);
+  --shadow-md: var(--ref-shadow-md);
+  --shadow-lg: var(--ref-shadow-lg);
+}
+
+@theme {
+  --text-heading-1: 2rem;
+  --text-heading-1--line-height: 1.4;
+  --text-heading-1--font-weight: 700;
+  --text-heading-2: 1.5rem;
+  --text-heading-2--line-height: 1.4;
+  --text-heading-2--font-weight: 700;
+  --text-heading-3: 1.25rem;
+  --text-heading-3--line-height: 1.5;
+  --text-heading-3--font-weight: 700;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.8;
+  --text-body: 1rem;
+  --text-body--line-height: 1.8;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.7;
+  --text-label: 0.875rem;
+  --text-label--line-height: 1.4;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.6;
+
+  --ease-out-soft: cubic-bezier(0.2, 0, 0, 1);
+}
