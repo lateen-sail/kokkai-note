@@ -6,6 +6,18 @@ import {
   fetchSpeeches,
   KokkaiApiError,
 } from "@/lib/kokkaiClient";
+import {
+  errorResponseSchema,
+  meetingListResponseSchema,
+  meetingResponseSchema,
+  speechResponseSchema,
+} from "@/types/kokkaiApi";
+
+import meetingSuccess from "../../fixtures/kokkai/meeting/success.json";
+import meetingListSuccess from "../../fixtures/kokkai/meeting-list/success.json";
+import speechEmpty from "../../fixtures/kokkai/speech/empty.json";
+import speechError from "../../fixtures/kokkai/speech/error.json";
+import speechSuccess from "../../fixtures/kokkai/speech/success.json";
 
 const API_BASE = "https://kokkai.example.test/api";
 
@@ -367,5 +379,31 @@ describe("KokkaiApiError", () => {
     await expect(fetchSpeeches({ any: "物価" })).rejects.toMatchObject({
       kind: "response",
     });
+  });
+});
+
+describe("見本のデータ", () => {
+  it("[1001] speech の成功と0件の見本が、応答のスキーマを通る", () => {
+    expect(speechResponseSchema.parse(speechSuccess).speechRecord).toHaveLength(
+      3,
+    );
+    expect(
+      speechResponseSchema.parse(speechEmpty).speechRecord,
+    ).toBeUndefined();
+  });
+
+  it("[1001] meeting_list と meeting の成功の見本が、応答のスキーマを通る", () => {
+    expect(
+      meetingListResponseSchema.parse(meetingListSuccess).meetingRecord,
+    ).toHaveLength(3);
+    expect(
+      meetingResponseSchema.parse(meetingSuccess).meetingRecord,
+    ).toHaveLength(1);
+  });
+
+  it("[1001] speech の 400 の見本が、エラーのスキーマを通る", () => {
+    expect(errorResponseSchema.parse(speechError).message).toMatch(
+      /^\(19011\)/,
+    );
   });
 });
