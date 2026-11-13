@@ -8,6 +8,8 @@ export default defineConfig({
   },
   test: {
     environment: "jsdom",
+    // 手元の .env がない CI でも同じ値にする。届かない名前にして、本物へ送らない
+    env: { VITE_KOKKAI_API_BASE: "https://kokkai.example.test/api" },
     setupFiles: ["./vitest.setup.ts"],
     include: ["src/**/*.test.{ts,tsx}"],
     coverage: {

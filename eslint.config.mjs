@@ -166,6 +166,7 @@ export default defineConfig([
     "src/routeTree.gen.ts",
     ".claude/**",
     "dist/**",
+    "public/mockServiceWorker.js",
     "coverage/**",
     "playwright-report/**",
     "test-results/**",

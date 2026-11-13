@@ -4,7 +4,20 @@ import { test as base } from "@playwright/test";
 
 const FIXTURES = path.resolve("fixtures");
 
-const ENDPOINTS = {} as const;
+const API_BASE = "https://kokkai.ndl.go.jp/api";
+
+// 末尾の ? で、meeting が meeting_list に当たらないようにする
+const ENDPOINTS = {
+  speech: { url: `${API_BASE}/speech?*`, dir: "kokkai/speech" },
+  meetingList: {
+    url: `${API_BASE}/meeting_list?*`,
+    dir: "kokkai/meeting-list",
+  },
+  meeting: { url: `${API_BASE}/meeting?*`, dir: "kokkai/meeting" },
+} as const;
+
+// 国会会議録APIと同じく、ほかのオリジンからの取得を許す
+const CORS_HEADERS = { "Access-Control-Allow-Origin": "*" };
 
 type Endpoint = keyof typeof ENDPOINTS;
 type Scenario = "success" | "empty" | "error";
@@ -24,6 +37,7 @@ export const test = base.extend<{ mockApi: MockApi }>({
         await page.route(url, (route) =>
           route.fulfill({
             status: scenario === "error" ? 400 : 200,
+            headers: CORS_HEADERS,
             path: path.join(FIXTURES, dir, `${scenario}.json`),
           }),
         );

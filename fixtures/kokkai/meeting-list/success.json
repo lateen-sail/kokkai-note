@@ -1,0 +1,365 @@
+{
+  "numberOfRecords": 9,
+  "numberOfReturn": 3,
+  "startRecord": 1,
+  "nextRecordPosition": 4,
+  "meetingRecord": [
+    {
+      "issueID": "122215382X00220261028",
+      "imageKind": "会議録",
+      "searchObject": 0,
+      "session": 222,
+      "nameOfHouse": "参議院",
+      "nameOfMeeting": "沖縄・北方問題及び地方に関する特別委員会",
+      "issue": "第2号",
+      "date": "2026-10-28",
+      "closing": null,
+      "speechRecord": [
+        {
+          "speechID": "122215382X00220261028_000",
+          "speechOrder": 0,
+          "speaker": "会議録情報",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/0"
+        },
+        {
+          "speechID": "122215382X00220261028_001",
+          "speechOrder": 1,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/1"
+        },
+        {
+          "speechID": "122215382X00220261028_002",
+          "speechOrder": 2,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/2"
+        },
+        {
+          "speechID": "122215382X00220261028_003",
+          "speechOrder": 3,
+          "speaker": "葉梨康弘",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/3"
+        },
+        {
+          "speechID": "122215382X00220261028_004",
+          "speechOrder": 4,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/4"
+        },
+        {
+          "speechID": "122215382X00220261028_005",
+          "speechOrder": 5,
+          "speaker": "茂木敏充",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/5"
+        },
+        {
+          "speechID": "122215382X00220261028_006",
+          "speechOrder": 6,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/6"
+        },
+        {
+          "speechID": "122215382X00220261028_007",
+          "speechOrder": 7,
+          "speaker": "藤井比早之",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/7"
+        },
+        {
+          "speechID": "122215382X00220261028_008",
+          "speechOrder": 8,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/8"
+        },
+        {
+          "speechID": "122215382X00220261028_009",
+          "speechOrder": 9,
+          "speaker": "今井絵理子",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/9"
+        },
+        {
+          "speechID": "122215382X00220261028_010",
+          "speechOrder": 10,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/10"
+        },
+        {
+          "speechID": "122215382X00220261028_011",
+          "speechOrder": 11,
+          "speaker": "堀井巌",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/11"
+        },
+        {
+          "speechID": "122215382X00220261028_012",
+          "speechOrder": 12,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/12"
+        },
+        {
+          "speechID": "122215382X00220261028_013",
+          "speechOrder": 13,
+          "speaker": "中曽根康隆",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/13"
+        },
+        {
+          "speechID": "122215382X00220261028_014",
+          "speechOrder": 14,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/14"
+        },
+        {
+          "speechID": "122215382X00220261028_015",
+          "speechOrder": 15,
+          "speaker": "鈴木英敬",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/15"
+        },
+        {
+          "speechID": "122215382X00220261028_016",
+          "speechOrder": 16,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/16"
+        },
+        {
+          "speechID": "122215382X00220261028_017",
+          "speechOrder": 17,
+          "speaker": "坂本竜太郎",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/17"
+        },
+        {
+          "speechID": "122215382X00220261028_018",
+          "speechOrder": 18,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/18"
+        },
+        {
+          "speechID": "122215382X00220261028_019",
+          "speechOrder": 19,
+          "speaker": "大空幸星",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/19"
+        },
+        {
+          "speechID": "122215382X00220261028_020",
+          "speechOrder": 20,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/20"
+        },
+        {
+          "speechID": "122215382X00220261028_021",
+          "speechOrder": 21,
+          "speaker": "福原淳嗣",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/21"
+        },
+        {
+          "speechID": "122215382X00220261028_022",
+          "speechOrder": 22,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/22"
+        },
+        {
+          "speechID": "122215382X00220261028_023",
+          "speechOrder": 23,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/23"
+        },
+        {
+          "speechID": "122215382X00220261028_024",
+          "speechOrder": 24,
+          "speaker": "山田吉彦",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/24"
+        },
+        {
+          "speechID": "122215382X00220261028_025",
+          "speechOrder": 25,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/25"
+        },
+        {
+          "speechID": "122215382X00220261028_026",
+          "speechOrder": 26,
+          "speaker": "打越さく良",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028/26"
+        }
+      ],
+      "meetingURL": "https://kokkai.ndl.go.jp/txt/122215382X00220261028",
+      "pdfURL": null
+    },
+    {
+      "issueID": "122204024X00720261106",
+      "imageKind": "会議録",
+      "searchObject": 0,
+      "session": 222,
+      "nameOfHouse": "衆議院",
+      "nameOfMeeting": "議院運営委員会",
+      "issue": "第7号",
+      "date": "2026-11-06",
+      "closing": null,
+      "speechRecord": [
+        {
+          "speechID": "122204024X00720261106_000",
+          "speechOrder": 0,
+          "speaker": "会議録情報",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/0"
+        },
+        {
+          "speechID": "122204024X00720261106_001",
+          "speechOrder": 1,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/1"
+        },
+        {
+          "speechID": "122204024X00720261106_002",
+          "speechOrder": 2,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/2"
+        },
+        {
+          "speechID": "122204024X00720261106_003",
+          "speechOrder": 3,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/3"
+        },
+        {
+          "speechID": "122204024X00720261106_004",
+          "speechOrder": 4,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/4"
+        },
+        {
+          "speechID": "122204024X00720261106_005",
+          "speechOrder": 5,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/5"
+        },
+        {
+          "speechID": "122204024X00720261106_006",
+          "speechOrder": 6,
+          "speaker": "築山信彦",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/6"
+        },
+        {
+          "speechID": "122204024X00720261106_007",
+          "speechOrder": 7,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/7"
+        },
+        {
+          "speechID": "122204024X00720261106_008",
+          "speechOrder": 8,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/8"
+        },
+        {
+          "speechID": "122204024X00720261106_009",
+          "speechOrder": 9,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/9"
+        },
+        {
+          "speechID": "122204024X00720261106_010",
+          "speechOrder": 10,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106/10"
+        }
+      ],
+      "meetingURL": "https://kokkai.ndl.go.jp/txt/122204024X00720261106",
+      "pdfURL": null
+    },
+    {
+      "issueID": "122204024X00620261030",
+      "imageKind": "会議録",
+      "searchObject": 0,
+      "session": 222,
+      "nameOfHouse": "衆議院",
+      "nameOfMeeting": "議院運営委員会",
+      "issue": "第6号",
+      "date": "2026-10-30",
+      "closing": null,
+      "speechRecord": [
+        {
+          "speechID": "122204024X00620261030_000",
+          "speechOrder": 0,
+          "speaker": "会議録情報",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/0"
+        },
+        {
+          "speechID": "122204024X00620261030_001",
+          "speechOrder": 1,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/1"
+        },
+        {
+          "speechID": "122204024X00620261030_002",
+          "speechOrder": 2,
+          "speaker": "築山信彦",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/2"
+        },
+        {
+          "speechID": "122204024X00620261030_003",
+          "speechOrder": 3,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/3"
+        },
+        {
+          "speechID": "122204024X00620261030_004",
+          "speechOrder": 4,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/4"
+        },
+        {
+          "speechID": "122204024X00620261030_005",
+          "speechOrder": 5,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/5"
+        },
+        {
+          "speechID": "122204024X00620261030_006",
+          "speechOrder": 6,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/6"
+        },
+        {
+          "speechID": "122204024X00620261030_007",
+          "speechOrder": 7,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/7"
+        },
+        {
+          "speechID": "122204024X00620261030_008",
+          "speechOrder": 8,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/8"
+        },
+        {
+          "speechID": "122204024X00620261030_009",
+          "speechOrder": 9,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/9"
+        },
+        {
+          "speechID": "122204024X00620261030_010",
+          "speechOrder": 10,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/10"
+        },
+        {
+          "speechID": "122204024X00620261030_011",
+          "speechOrder": 11,
+          "speaker": "築山信彦",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/11"
+        },
+        {
+          "speechID": "122204024X00620261030_012",
+          "speechOrder": 12,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/12"
+        },
+        {
+          "speechID": "122204024X00620261030_013",
+          "speechOrder": 13,
+          "speaker": "坂本哲志",
+          "speechURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030/13"
+        }
+      ],
+      "meetingURL": "https://kokkai.ndl.go.jp/txt/122204024X00620261030",
+      "pdfURL": null
+    }
+  ]
+}
