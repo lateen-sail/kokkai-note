@@ -6,6 +6,11 @@ on:
 permissions:
   contents: read
 
+# L1 公開。.env のない CI でも、ビルドが API のベースURLを読めるようにする。
+# E2E では e2e/support/test.ts が、本物へのリクエストを見本の応答に差し替える
+env:
+  VITE_KOKKAI_API_BASE: https://kokkai.ndl.go.jp/api
+
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
