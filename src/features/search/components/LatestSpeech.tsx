@@ -27,7 +27,7 @@ function LatestSpeechBody({
   return (
     <article>
       <p>{speech.speaker}</p>
-      <p className="whitespace-pre-line">{speech.text}</p>
+      <p className="wrap-break-word whitespace-pre-line">{speech.text}</p>
     </article>
   );
 }
