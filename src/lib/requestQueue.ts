@@ -22,12 +22,12 @@ export const createRequestQueue = ({
 
   const run = async <T>(task: () => Promise<T>): Promise<T> => {
     if (lastSettledAt !== undefined) {
-      await wait(lastSettledAt + intervalMs - Date.now());
+      await wait(lastSettledAt + intervalMs - performance.now());
     }
     try {
       return await task();
     } finally {
-      lastSettledAt = Date.now();
+      lastSettledAt = performance.now();
     }
   };
 

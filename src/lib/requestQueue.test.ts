@@ -9,7 +9,7 @@ const INTERVAL_MS = 3000;
 const RESPONSE_MS = 500;
 
 beforeEach(() => {
-  vi.useFakeTimers({ toFake: ["setTimeout", "Date"] });
+  vi.useFakeTimers({ toFake: ["setTimeout", "performance"] });
 });
 
 afterEach(() => {

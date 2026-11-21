@@ -449,7 +449,7 @@ describe("順番待ち", () => {
   });
 
   it("[1202] 同時に取得しても、1件ずつ、前の応答から3秒以上空けて送る", async () => {
-    vi.useFakeTimers({ toFake: ["setTimeout", "Date"] });
+    vi.useFakeTimers({ toFake: ["setTimeout", "performance"] });
     // 単体テストでは順番待ちを素通りさせているため、本物に戻した kokkaiClient を読み直す
     vi.doUnmock("@/lib/requestQueue");
     vi.resetModules();
