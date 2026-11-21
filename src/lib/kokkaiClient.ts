@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+import { createRequestQueue } from "@/lib/requestQueue";
 import type {
   House,
   Meeting,
@@ -52,8 +53,18 @@ export class KokkaiApiError extends Error {
 // 会議録情報（出席者や議事日程）の発言の番号。発言として扱わない
 const MEETING_INFO_ORDER = 0;
 const SERVER_ERROR_STATUS = 500;
+// 提供元の負担を小さく保つため、前の応答から空ける時間（NFR-019）
+const REQUEST_INTERVAL_MS = 3000;
+
+const requestQueue = createRequestQueue({ intervalMs: REQUEST_INTERVAL_MS });
 
 type QueryParams = Record<string, string | number | undefined>;
+
+type RequestOptions<T> = {
+  endpoint: string;
+  params: QueryParams;
+  schema: z.ZodType<T>;
+};
 
 const apiBaseUrl = (): string =>
   z.url().parse(import.meta.env.VITE_KOKKAI_API_BASE);
@@ -79,15 +90,11 @@ const toHttpError = async (response: Response): Promise<KokkaiApiError> => {
   });
 };
 
-const request = async <T>({
+const send = async <T>({
   endpoint,
   params,
   schema,
-}: {
-  endpoint: string;
-  params: QueryParams;
-  schema: z.ZodType<T>;
-}): Promise<T> => {
+}: RequestOptions<T>): Promise<T> => {
   const url = buildUrl(endpoint, params);
   const response = await fetch(url).catch((cause: unknown) => {
     throw new KokkaiApiError({
@@ -115,6 +122,9 @@ const request = async <T>({
   }
   return result.data;
 };
+
+const request = <T>(options: RequestOptions<T>): Promise<T> =>
+  requestQueue.enqueue(() => send(options));
 
 const isSpeech = ({ speechOrder }: { speechOrder: number }): boolean =>
   speechOrder !== MEETING_INFO_ORDER;

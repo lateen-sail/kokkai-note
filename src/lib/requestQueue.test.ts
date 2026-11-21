@@ -2,6 +2,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { createRequestQueue } from "@/lib/requestQueue";
 
+// vitest.setup.ts で素通りさせている順番待ちを、本物に戻す
+vi.unmock("@/lib/requestQueue");
+
 const INTERVAL_MS = 3000;
 const RESPONSE_MS = 500;
 

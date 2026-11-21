@@ -1,5 +1,5 @@
 import { http, HttpResponse, type JsonBodyType } from "msw";
-import { beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
   fetchMeeting,
@@ -436,5 +436,45 @@ describe("MSW の既定の応答", () => {
     expect(meeting.speeches.map((speech) => speech.order)).toEqual([
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
+  });
+});
+
+describe("順番待ち", () => {
+  // NFR-019 の間隔
+  const REQUIRED_INTERVAL_MS = 3000;
+
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.resetModules();
+  });
+
+  it("[1202] 同時に取得しても、1件ずつ、前の応答から3秒以上空けて送る", async () => {
+    vi.useFakeTimers({ toFake: ["setTimeout", "Date"] });
+    // 単体テストでは順番待ちを素通りさせているため、本物に戻した kokkaiClient を読み直す
+    vi.doUnmock("@/lib/requestQueue");
+    vi.resetModules();
+    const client = await import("@/lib/kokkaiClient");
+    const sentEndpoints: string[] = [];
+    server.use(
+      http.get(`${API_BASE}/:endpoint`, ({ params }) => {
+        const endpoint = String(params.endpoint);
+        sentEndpoints.push(endpoint);
+        return HttpResponse.json(
+          endpoint === "speech" ? speechSuccess : meetingListSuccess,
+        );
+      }),
+    );
+
+    const first = client.fetchSpeeches({ any: "物価" });
+    const second = client.fetchMeetingList({ from: "2026-10-28" });
+    await first;
+    expect(sentEndpoints).toEqual(["speech"]);
+
+    await vi.advanceTimersByTimeAsync(REQUIRED_INTERVAL_MS - 1);
+    expect(sentEndpoints).toEqual(["speech"]);
+    await vi.advanceTimersByTimeAsync(1);
+
+    await expect(second).resolves.toBeDefined();
+    expect(sentEndpoints).toEqual(["speech", "meeting_list"]);
   });
 });
