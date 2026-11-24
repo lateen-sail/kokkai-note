@@ -1,6 +1,10 @@
 import { createAsyncStoragePersister } from "@tanstack/query-async-storage-persister";
 import type { QueryStatus } from "@tanstack/react-query";
-import type { PersistQueryClientOptions } from "@tanstack/react-query-persist-client";
+import type {
+  AsyncStorage,
+  PersistedClient,
+  PersistQueryClientOptions,
+} from "@tanstack/react-query-persist-client";
 import { del, get, set } from "idb-keyval";
 
 type PersistOptions = {
@@ -22,18 +26,44 @@ const PERSIST_OPTIONS: PersistOptions = {
   shouldPersist: (status) => status === "success",
 };
 
+const indexedDbStorage: AsyncStorage = {
+  getItem: (key) => get<string>(key),
+  setItem: set,
+  removeItem: del,
+};
+
+// maxAge は最後に保存した時刻だけを見て、保存のたびに延びる。
+// 古い結果が残り続けないよう、結果ごとの取得時刻でも捨てる
+const deserializeWithoutExpired = (stored: string): PersistedClient => {
+  const client = JSON.parse(stored) as PersistedClient;
+  const oldestAllowedAt = Date.now() - PERSIST_MAX_AGE_MS;
+  return {
+    ...client,
+    clientState: {
+      ...client.clientState,
+      queries: client.clientState.queries.filter(
+        ({ state }) => state.dataUpdatedAt >= oldestAllowedAt,
+      ),
+    },
+  };
+};
+
+type CreatePersistOptionsParams = {
+  // null は保存しない
+  storage?: AsyncStorage | null;
+};
+
 // Safari などが保存データを消した場合や読めない場合は、ライブラリが保存を破棄し、取得し直す
-export const createPersistOptions = (): Omit<
+export const createPersistOptions = ({
+  storage = indexedDbStorage,
+}: CreatePersistOptionsParams = {}): Omit<
   PersistQueryClientOptions,
   "queryClient"
 > => ({
   persister: createAsyncStoragePersister({
-    storage: {
-      getItem: (key) => get<string>(key),
-      setItem: set,
-      removeItem: del,
-    },
+    storage,
     key: PERSIST_OPTIONS.key,
+    deserialize: deserializeWithoutExpired,
   }),
   maxAge: PERSIST_MAX_AGE_MS,
   dehydrateOptions: {

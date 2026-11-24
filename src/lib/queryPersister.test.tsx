@@ -3,13 +3,17 @@ import "fake-indexeddb/auto";
 import { type QueryClient, useQuery } from "@tanstack/react-query";
 import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import { render, screen, waitFor } from "@testing-library/react";
-import { clear, get } from "idb-keyval";
+import { clear, get, set } from "idb-keyval";
 import { http, HttpResponse } from "msw";
 import { beforeEach, expect, it } from "vitest";
 
 import { fetchSpeeches } from "@/lib/kokkaiClient";
 import { createQueryClient } from "@/lib/queryClient";
-import { createPersistOptions, PERSIST_KEY } from "@/lib/queryPersister";
+import {
+  createPersistOptions,
+  PERSIST_KEY,
+  PERSIST_MAX_AGE_MS,
+} from "@/lib/queryPersister";
 import { server } from "@/mocks/server";
 
 import speechSuccess from "../../fixtures/kokkai/speech/success.json";
@@ -102,4 +106,48 @@ it("[1302] 失敗した取得の結果は保存せず、成功した結果だけ
     },
     { timeout: PERSIST_WAIT_MS },
   );
+});
+
+it("[1301] まとまりの保存が新しくても、30日を過ぎた結果は復元しない", async () => {
+  const now = Date.now();
+  const toStored = (name: string, dataUpdatedAt: number) => ({
+    queryKey: [name],
+    queryHash: JSON.stringify([name]),
+    state: { status: "success", fetchStatus: "idle", data: 1, dataUpdatedAt },
+  });
+  await set(
+    PERSIST_KEY,
+    JSON.stringify({
+      buster: "",
+      timestamp: now,
+      clientState: {
+        mutations: [],
+        queries: [
+          toStored("expired", now - PERSIST_MAX_AGE_MS - 1000),
+          toStored("kept", now - PERSIST_MAX_AGE_MS + 60_000),
+        ],
+      },
+    }),
+  );
+  const queryClient = createQueryClient();
+
+  renderWithPersist(queryClient);
+
+  await waitFor(() => {
+    expect(queryClient.getQueryData(["kept"])).toBe(1);
+  });
+  expect(queryClient.getQueryData(["expired"])).toBeUndefined();
+});
+
+it("[1301] 保存先がないと、復元も保存もしない", async () => {
+  const { persister } = createPersistOptions({ storage: null });
+
+  await persister.persistClient({
+    buster: "",
+    timestamp: Date.now(),
+    clientState: { mutations: [], queries: [] },
+  });
+
+  expect(await persister.restoreClient()).toBeUndefined();
+  expect(await get(PERSIST_KEY)).toBeUndefined();
 });
