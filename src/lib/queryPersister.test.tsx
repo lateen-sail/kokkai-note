@@ -11,12 +11,14 @@ import { fetchSpeeches } from "@/lib/kokkaiClient";
 import { createQueryClient } from "@/lib/queryClient";
 import {
   createPersistOptions,
+  PERSIST_BUSTER,
   PERSIST_KEY,
   PERSIST_MAX_AGE_MS,
 } from "@/lib/queryPersister";
 import { server } from "@/mocks/server";
 
 import speechSuccess from "../../fixtures/kokkai/speech/success.json";
+import packageJson from "../../package.json";
 
 const SPEECH_ENDPOINT = "https://kokkai.example.test/api/speech";
 // 保存は1秒ごとにまとめて書くため、待つ時間をその分だけ延ばす
@@ -118,7 +120,7 @@ it("[1301] まとまりの保存が新しくても、30日を過ぎた結果は�
   await set(
     PERSIST_KEY,
     JSON.stringify({
-      buster: "",
+      buster: PERSIST_BUSTER,
       timestamp: now,
       clientState: {
         mutations: [],
@@ -150,4 +152,66 @@ it("[1301] 保存先がないと、復元も保存もしない", async () => {
 
   expect(await persister.restoreClient()).toBeUndefined();
   expect(await get(PERSIST_KEY)).toBeUndefined();
+});
+
+const storeSavedClient = async (buster: string) => {
+  const now = Date.now();
+  await set(
+    PERSIST_KEY,
+    JSON.stringify({
+      buster,
+      timestamp: now,
+      clientState: {
+        mutations: [],
+        queries: [
+          {
+            queryKey: ["saved"],
+            queryHash: JSON.stringify(["saved"]),
+            state: {
+              status: "success",
+              fetchStatus: "idle",
+              data: 1,
+              dataUpdatedAt: now,
+            },
+          },
+        ],
+      },
+    }),
+  );
+};
+
+it("[1402] 保存の版は、package.json の version にする", () => {
+  expect(PERSIST_BUSTER).toBe(packageJson.version);
+});
+
+it("[1402] 前の版で保存した結果は、復元せずに破棄する", async () => {
+  await storeSavedClient(`${PERSIST_BUSTER}-old`);
+  const queryClient = createQueryClient();
+
+  renderWithPersist(queryClient);
+
+  // 破棄の後、今の版で取得した結果を保存し直すため、キーは残る
+  await waitFor(
+    async () => {
+      const stored = await get<string>(PERSIST_KEY);
+      expect(stored).toContain(`"buster":"${PERSIST_BUSTER}"`);
+    },
+    { timeout: PERSIST_WAIT_MS },
+  );
+  const storedKeys = (await readStoredQueries())?.map(
+    ({ queryKey }) => queryKey,
+  );
+  expect(storedKeys).not.toContainEqual(["saved"]);
+  expect(queryClient.getQueryData(["saved"])).toBeUndefined();
+});
+
+it("[1402] 同じ版で保存した結果は、復元する", async () => {
+  await storeSavedClient(PERSIST_BUSTER);
+  const queryClient = createQueryClient();
+
+  renderWithPersist(queryClient);
+
+  await waitFor(() => {
+    expect(queryClient.getQueryData(["saved"])).toBe(1);
+  });
 });
