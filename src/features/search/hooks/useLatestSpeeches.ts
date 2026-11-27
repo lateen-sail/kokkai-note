@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-
+import { useKokkaiApi } from "@/hooks/useKokkaiApi";
 import { fetchSpeeches, type KokkaiQuery } from "@/lib/kokkaiClient";
 import type { Speech } from "@/types/kokkai";
 
@@ -16,7 +15,8 @@ const LATEST_SPEECH_QUERY = {
 } as const satisfies KokkaiQuery;
 
 export const useLatestSpeeches: UseLatestSpeeches = () => {
-  const { data, isPending, isError } = useQuery({
+  const { data, isPending, isError } = useKokkaiApi({
+    kind: "speechSearch",
     queryKey: ["speeches", LATEST_SPEECH_QUERY],
     queryFn: () => fetchSpeeches(LATEST_SPEECH_QUERY),
   });
